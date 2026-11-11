@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rastro de luz | Guía ante una desaparición</title>
+<meta name="description" content="Guía clara, con fuentes oficiales y sin guardar datos personales, para saber qué hacer en las primeras horas ante la desaparición de una persona en México.">
+<style>
+:root{
+  --bg:#0f1624; --bg2:#16203a; --card:#1b2744; --line:#2b3a5e;
+  --text:#eef1f8; --muted:#aab4cc; --luz:#f6c453; --luz2:#ffe3a1;
+  --verde:#4cc38a; --amar:#f0b429; --rojo:#ef6a6a; --focus:#9ec5ff;
+}
+@media (prefers-color-scheme: light){
+  :root{--bg:#fbf8f1; --bg2:#f3eddd; --card:#ffffff; --line:#dcd3bd; --text:#1a2238; --muted:#566079; --luz:#b7791f; --luz2:#7a4d0a; --verde:#1f8a5b; --amar:#9a6b00; --rojo:#b83232; --focus:#1d4ed8;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 system-ui,"Segoe UI",Roboto,sans-serif}
+a{color:var(--luz)} a:hover{color:var(--luz2)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+header.top{background:linear-gradient(180deg,var(--bg2),var(--bg));border-bottom:1px solid var(--line)}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding:12px 0}
+nav a{color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:.92rem}
+nav a:hover{background:var(--card);color:var(--text)}
+.brand{font-weight:700;color:var(--luz);margin-right:auto;font-size:1.05rem;padding:6px 0}
+.hero{padding:34px 0 40px}
+.hero h1{font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.15;margin:0 0 12px}
+.hero h1 span{color:var(--luz)}
+.hero p{color:var(--muted);max-width:640px;margin:0 0 18px}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 12px;font-size:.85rem;color:var(--muted)}
+.urgent{background:var(--card);border:1px solid var(--luz);border-left-width:6px;border-radius:12px;padding:14px 16px;margin:18px 0 0}
+.urgent strong{color:var(--luz)}
+section{padding:36px 0;border-top:1px solid var(--line)}
+section h2{font-size:1.55rem;margin:0 0 6px}
+.lead{color:var(--muted);margin:0 0 18px;max-width:720px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+button,.btn{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--text);padding:9px 14px}
+button:hover{border-color:var(--luz)}
+button.primary{background:var(--luz);color:#1a1405;border-color:var(--luz);font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+.chips button{font-size:.9rem;padding:6px 12px;border-radius:99px}
+.chat{display:flex;flex-direction:column;gap:12px;margin:14px 0;min-height:60px}
+.msg{padding:12px 14px;border-radius:12px;max-width:100%;border:1px solid var(--line)}
+.msg.user{align-self:flex-end;background:var(--bg2);max-width:85%}
+.msg.bot{background:var(--card)}
+.msg h3{margin:0 0 6px;font-size:1.05rem;color:var(--luz)}
+.msg ul{padding-left:20px;margin:8px 0}
+.meta{font-size:.82rem;color:var(--muted);margin-top:8px}
+.tag{display:inline-block;font-size:.75rem;border-radius:99px;padding:1px 9px;margin-right:6px;border:1px solid currentColor;font-weight:600}
+.tag.verde{color:var(--verde)} .tag.amarillo{color:var(--amar)} .tag.rojo{color:var(--rojo)}
+.src{font-size:.85rem;margin:6px 0 0;padding-left:0;list-style:none}
+.src li{margin:4px 0}
+form.ask{display:flex;gap:8px}
+form.ask input{flex:1;min-width:0;font:inherit;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--text)}
+.warn{color:var(--amar);font-size:.9rem;margin:6px 0 0}
+.big{font-size:2.3rem;font-weight:800;color:var(--luz);line-height:1.1}
+.kv{color:var(--muted);font-size:.9rem}
+.steps ol{padding-left:22px}
+.chk h3{margin:14px 0 4px;font-size:1rem;color:var(--luz)}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+.chk input{margin-top:6px;width:18px;height:18px;accent-color:var(--luz)}
+.chk input:checked + span{text-decoration:line-through;color:var(--muted)}
+.tool input{width:100%;font:inherit;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+footer{border-top:1px solid var(--line);padding:26px 0 50px;color:var(--muted);font-size:.9rem}
+.sr{position:absolute;left:-9999px}
+button:disabled{opacity:.55;cursor:default}
+button.ghost{background:transparent;color:var(--muted)}
+.typing{display:inline-flex;gap:5px;align-items:center;vertical-align:middle}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--luz);animation:parpadeo 1.2s infinite both}
+.typing i:nth-child(2){animation-delay:.2s} .typing i:nth-child(3){animation-delay:.4s}
+@keyframes parpadeo{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.msg ol.pasos{padding-left:22px;margin:8px 0} .msg ol.pasos li{margin:5px 0}
+.acts,.sug{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.acts button,.sug button{font-size:.85rem;padding:5px 11px;border-radius:99px}
+.sug span{font-size:.82rem;color:var(--muted)}
+details.pens{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);font-size:.85rem;color:var(--muted)}
+details.pens summary{cursor:pointer;color:var(--text)}
+details.pens ol{margin:6px 0 0;padding-left:20px} details.pens li{margin:3px 0}
+.ruta{border-color:var(--luz)}
+.ruta .dots{display:flex;gap:6px;margin:0 0 10px} .ruta .dots i{width:34px;height:5px;border-radius:9px;background:var(--line)} .ruta .dots i.on{background:var(--luz)}
+.ruta .rq,.quiz .rq{font-size:1.15rem;font-weight:600;margin:4px 0 2px}
+.opts{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}
+.fb{margin-top:12px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg2)}
+.bar{height:10px;border-radius:99px;background:var(--bg2);border:1px solid var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--luz);transition:width .3s}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none;opacity:.7} .bar i{transition:none}}
+@media print{header.top,.chips,form.ask,nav,footer,#guia,#datos,#mitos,#etica,.tool,.noprint{display:none!important}
+  body{background:#fff;color:#000} section{border:0} .card{border:1px solid #999}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="wrap">
+  <nav aria-label="Principal">
+    <span class="brand">✦ Rastro de luz</span>
+    <a href="#guia">Guía</a><a href="#datos">Datos</a><a href="#mitos">Mito o realidad</a><a href="#lista">Lista para reportar</a><a href="#fuentes">Verificar fuente</a><a href="#etica">IA y ética</a>
+  </nav>
+  <div class="hero">
+    <h1>Cuando alguien no aparece, <span>cada hora cuenta</span>.</h1>
+    <p>Una guía en lenguaje claro, basada solo en fuentes oficiales o con autoría identificable, para saber qué hacer primero, dónde reportar y qué datos entender. No guarda nombres, fotos ni ningún dato personal.</p>
+    <div class="badges">
+      <span class="badge">🔒 No guarda datos</span><span class="badge">📎 Cada respuesta cita su fuente</span><span class="badge">🚦 Semáforo de confiabilidad</span><span class="badge">🤖 IA que solo usa fuentes verificadas</span>
+    </div>
+    <div class="urgent" role="note">
+      <strong>Si hay peligro inmediato, llama al 911.</strong>
+      Para reportar una desaparición <strong>no es necesario esperar 72 horas</strong> (Protocolo Nacional de Alerta de Búsqueda, DOF, 17 feb 2026). Puedes reportar ante la Fiscalía más cercana o ante la Comisión Nacional o Local de Búsqueda.
+    </div>
+  </div>
+ </div>
+</header>
+
+<main class="wrap">
+
+<!-- GUIA -->
+<section id="guia" aria-labelledby="t-guia">
+  <h2 id="t-guia">1. ¿Qué hago ahora?</h2>
+  <p class="lead">Responde tres preguntas y te armo una ruta paso a paso para tu situación.</p>
+  <div class="card ruta" id="ruta" aria-live="polite"></div>
+  <p class="lead" style="margin-top:22px">O cuéntame tu situación con tus palabras, o elige una opción. Puedes seguir preguntando: recuerdo tus preguntas anteriores mientras dure esta conversación. <strong>No escribas nombres completos, teléfonos ni correos</strong>: si los detecto, los oculto antes de analizar el texto.</p>
+  <div class="chips" id="chips"></div>
+  <div class="chat" id="chat" aria-live="polite"></div>
+  <form class="ask" id="ask">
+    <label class="sr" for="q">Describe tu situación</label>
+    <input id="q" autocomplete="off" placeholder="Ej.: mi familiar no llegó a casa ayer, ¿qué hago?">
+    <button class="primary" type="submit">Preguntar</button>
+  </form>
+  <div class="warn" id="pii" hidden></div>
+  <p class="noprint" style="margin:10px 0 0"><button type="button" id="limpiar" class="ghost">🧹 Borrar conversación</button></p>
+  <p class="meta">Esta herramienta orienta; <strong>no sustituye a las autoridades</strong>. Si no tengo información verificada sobre algo, te lo diré y te remitiré a la autoridad.<br><strong>Privacidad:</strong> tu pregunta y, como contexto, hasta tus tres preguntas anteriores de esta conversación (con teléfonos, correos y CURP ocultos) se envían a Gemini, de Google, para generar la respuesta. Usamos su nivel gratuito, que <strong>puede usar lo que se envía para mejorar sus productos</strong>; por eso <strong>no escribas nombres, direcciones ni detalles de ningún caso</strong>. Este sitio no guarda tus mensajes ni crea cuentas.</p>
+</section>
+
+<!-- DATOS -->
+<section id="datos" aria-labelledby="t-datos">
+  <h2 id="t-datos">2. Datos oficiales, explicados</h2>
+  <p class="lead">Las cifras cambian según la fecha de corte y el método de conteo. Por eso cada dato muestra su fuente y un semáforo. Aquí no se muestra ningún dato que no hayamos podido respaldar.</p>
+  <div class="grid" id="cards"></div>
+  <div class="card" style="margin-top:14px">
+    <strong>Explícame estos datos</strong>
+    <div class="chips" id="dchips"></div>
+    <div id="dexp" class="kv" aria-live="polite">Elige una pregunta para ver una explicación generada solo con los datos de arriba.</div>
+  </div>
+  <p class="meta">Consulta siempre la cifra más reciente en la versión pública del Registro Nacional de Personas Desaparecidas y No Localizadas y en la Comisión Nacional de Búsqueda. Familiares y colectivos han pedido transparencia en la metodología de depuración.</p>
+</section>
+
+<!-- MITOS -->
+<section id="mitos" aria-labelledby="t-mitos">
+  <h2 id="t-mitos">3. Mito o realidad</h2>
+  <p class="lead">Cinco afirmaciones que se escuchan mucho. Pon a prueba lo que sabes: cada respuesta muestra su explicación y su fuente.</p>
+  <div class="card quiz" id="quiz" aria-live="polite"></div>
+  <p class="meta">Contenido revisado por el equipo a partir de la base verificada. Este juego no usa IA, no envía nada y no guarda tus respuestas.</p>
+</section>
+
+<!-- LISTA -->
+<section id="lista" aria-labelledby="t-lista" class="steps">
+  <h2 id="t-lista">4. Lista para preparar tu reporte</h2>
+  <p class="lead">Se usa en tu propio navegador y <strong>no se guarda nada</strong>. Reúne lo que puedas, pero <strong>no esperes a tenerlo todo</strong>: la autoridad debe recibir tu reporte aunque falten datos.</p>
+  <div class="noprint" style="margin:0 0 12px"><div class="bar" aria-hidden="true"><i id="progb"></i></div><p class="kv" id="progt" aria-live="polite" style="margin:6px 0 0"></p></div>
+  <div class="card chk" id="chk"></div>
+  <p class="noprint"><button onclick="window.print()">🖨 Imprimir o guardar como PDF</button></p>
+  <p class="meta">Lista orientativa elaborada por el equipo a partir de recomendaciones públicas; no es un formato oficial. Confirma los requisitos con la autoridad que te atienda.</p>
+</section>
+
+<!-- FUENTES -->
+<section id="fuentes" aria-labelledby="t-fuentes">
+  <h2 id="t-fuentes">5. ¿Esta fuente es confiable?</h2>
+  <p class="lead">Antes de compartir una ficha, un número o una cifra, pega el enlace. Una clasificación automática te da una primera pista (no una garantía).</p>
+  <div class="card tool">
+    <label class="sr" for="url">Enlace a revisar</label>
+    <input id="url" placeholder="https://…" inputmode="url">
+    <div id="urlout" style="margin-top:10px" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ETICA -->
+<section id="etica" aria-labelledby="t-etica">
+  <h2 id="t-etica">6. Cómo usamos la IA (y sus límites)</h2>
+  <div class="grid">
+    <div class="card"><strong>IA discriminativa</strong><p class="kv">El modelo de lenguaje <em>clasifica</em> cada mensaje en una intención (reportar, dudas de tiempo, qué llevar, datos…) y marca si la base verificada cubre la pregunta. Un clasificador local por palabras clave sirve de respaldo y el verificador de enlaces usa reglas.</p></div>
+    <div class="card"><strong>IA generativa</strong><p class="kv">El modelo de lenguaje (Gemini, vía un servidor intermedio que protege la clave) <em>redacta</em> la respuesta en lenguaje claro usando únicamente la base verificada. Una validación en el servidor descarta fuentes inventadas; si la base no cubre la pregunta, no responde y remite a la autoridad.</p></div>
+    <div class="card"><strong>Supervisión humana</strong><p class="kv">Las personas del equipo verifican cada dato antes de incluirlo y le asignan un semáforo. Ninguna respuesta se publica sin esa revisión.</p></div>
+    <div class="card"><strong>IA que se explica</strong><p class="kv">Cada respuesta incluye «Así se construyó esta respuesta»: qué datos se ocultaron, cómo se clasificó la pregunta, qué hechos de la base se usaron y si respondió el modelo o el modo de respaldo.</p></div>
+    <div class="card"><strong>Personalización</strong><p class="kv">La ruta guiada convierte tres respuestas en un plan ordenado para esa situación. El modelo recuerda hasta tres preguntas anteriores para entender las siguientes, y puede reescribir la respuesta en lectura fácil.</p></div>
+    <div class="card"><strong>Accesibilidad</strong><p class="kv">«Escuchar» lee la respuesta con una voz en español instalada en tu dispositivo; si no hay ninguna, el botón se desactiva en lugar de usar una voz en línea. Funciona con teclado y respeta el modo claro u oscuro.</p></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <strong>Transparencia sobre el nivel gratuito</strong>
+    <p class="kv">Como prototipo escolar usamos el nivel gratuito de la API de Gemini. Sus condiciones indican que, en ese nivel, el contenido enviado puede utilizarse para mejorar productos de Google, y que tiene límites de uso: si se agota la cuota, el sitio responde con un modo de respaldo local (clasificador por reglas y textos de la base verificada). Para reducir el riesgo: ocultamos datos personales automáticamente, limitamos cada mensaje a 400 caracteres y el contexto a tres preguntas anteriores (que viven solo en la memoria de la pestaña y se borran al cerrarla o con «Borrar conversación»), avisamos al usuario de no escribir datos de casos y no guardamos mensajes. Un uso real a escala exigiría el nivel de pago, donde los datos no se usan para mejorar productos.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <strong>Lo que Rastro de luz NO hace</strong>
+    <ul>
+      <li>No guarda ni solicita nombres, fotos ni datos de personas desaparecidas o de sus familias; oculta teléfonos, correos y CURP antes de enviar la pregunta al modelo y no registra los mensajes.</li>
+      <li>No usa reconocimiento facial ni genera imágenes de personas.</li>
+      <li>No promete localizar a nadie ni sustituye a la Fiscalía o a las Comisiones de Búsqueda.</li>
+      <li>No emite acusaciones: solo presenta datos con fuente y fecha.</li>
+    </ul>
+  </div>
+  <h3 style="margin-top:22px">Fuentes de la base de conocimiento</h3>
+  <div class="card" style="overflow:auto"><table id="srctab"><thead><tr><th>Fuente</th><th>Qué respalda</th><th>Semáforo</th></tr></thead><tbody></tbody></table></div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <strong>Rastro de luz</strong> · Prototipo educativo del equipo «Red de Esperanza IA» · Proyecto presentado a innovatiQ Digital Cup 2027, reto AI Fusion.<br>
+  Herramientas de IA: Gemini (Google) dentro del producto, en su nivel gratuito; Claude como apoyo en el desarrollo del código y la redacción, revisado por el equipo. Todo contenido factual fue contrastado con las fuentes citadas. Este sitio no pertenece a ninguna institución de gobierno.
+ </div>
+</footer>
+
+<script>
+/* ========= BASE DE CONOCIMIENTO VERIFICADA =========
+   Cada entrada: texto + fuentes con fecha + semáforo.
+   verde = respaldada por fuente oficial/identificable y vigente; amarillo = parcial, confirmar con la autoridad. */
+const SRC = {
+  uno:{n:"UnoTV, A. Villa: «Activan alerta nacional inmediata…» (18 feb 2026), sobre el Protocolo publicado en el DOF el 17 feb 2026",u:"https://www.unotv.com/nacional/activan-alerta-nacional-inmediata-personas-desaparecidas-mexico/"},
+  dof:{n:"Diario Oficial de la Federación, nota 5698007 (9 ago 2023): líneas de reporte de la CNB 24 h",u:"https://www.dof.gob.mx/nota_detalle.php?codigo=5698007&fecha=09%2F08%2F2023"},
+  cnb:{n:"Comisión Nacional de Búsqueda (Segob), sitio oficial",u:"https://comisionacionaldebusqueda.segob.gob.mx/?idiom=es"},
+  phb:{n:"CNB: Protocolo Homologado de Búsqueda, versión resumida para familias (2025)",u:"https://comisionacionaldebusqueda.segob.gob.mx/wp-content/uploads/2025/05/PHB_Version-Resumida-para-familias.pdf"},
+  nmas:{n:"N+: «¿Cuánto tiempo hay que esperar para reportar una persona desaparecida?» (cita aclaración de la Fiscalía del Edomex)",u:"https://www.nmas.com.mx/nacional/cuanto-tiempo-hay-que-esperar-para-reportar-una-persona-desaparecida/"},
+  rnpdno:{n:"UnoTV: «Gobierno actualiza cifra de desaparecidos…» (actualización del RNPDNO)",u:"https://www.unotv.com/nacional/gobierno-actualiza-cifra-de-desaparecidos-mas-de-132-mil-siguen-sin-localizarse/"},
+  lupa:{n:"UnoTV: «México rebasa los 134 mil desaparecidos…» (informe de Red Lupa, corte 16 may 2026)",u:"https://www.unotv.com/nacional/mexico-134-mil-desaparecidos-aumentan-casos-28-estados/"},
+  cidh:{n:"CIDH-OEA: Informe sobre desapariciones en México (2026)",u:"https://www.oas.org/es/cidh/informes/pdfs/2026/informe_desapariciones_mx_spa.pdf"}
+};
+const KB = {
+  emergencia:{t:"Si hay peligro inmediato",lvl:"verde",
+    body:["Si la persona o alguien más está en riesgo en este momento, llama al <strong>911</strong> (número nacional de emergencias).","Después, o al mismo tiempo, reporta la desaparición como se indica abajo."],src:[]},
+  sin72:{t:"No hay que esperar 72 horas",lvl:"verde",
+    body:["<strong>No existe un plazo mínimo</strong> para reportar. Puedes hacerlo desde el primer momento.","El protocolo nacional establece que la autoridad que recibe el aviso debe registrarlo sin demora y activar la alerta de búsqueda, sin esperar 72 horas.","La Fiscalía del Estado de México aclaró que condicionar la recepción de la denuncia al paso del tiempo es una falta que se puede denunciar."],
+    src:["uno","nmas"]},
+  donde:{t:"Dónde reportar",lvl:"amarillo",
+    body:["Puedes acudir a la <strong>Fiscalía más cercana</strong>, a la <strong>Comisión Nacional de Búsqueda (CNB)</strong> o a la <strong>Comisión Local de Búsqueda</strong> del estado donde ocurrió.","La CNB informó líneas nacionales 24 horas: <strong>800 028 77 83</strong> y <strong>55 1309 9024</strong> (también WhatsApp). Existe además un portal de reporte que permite hacerlo incluso sin denuncia previa y de forma anónima.","⚠ Estos números provienen de comunicados de 2023–2025: <strong>confírmalos en el sitio oficial de la CNB</strong> antes de usarlos."],
+    src:["dof","cnb"]},
+  llevar:{t:"Qué información conviene reunir",lvl:"amarillo",
+    body:["Orientativo: fotografía reciente, descripción física (estatura, complexión, señas particulares), ropa y objetos que llevaba, lugar, fecha y hora en que se le vio por última vez, y un medio de contacto de la familia.","<strong>No te pueden negar la atención por no tener todo.</strong> Da lo que sepas y completa después.","No encontramos una lista oficial única y vigente; el equipo la armó a partir de recomendaciones públicas. Confírmala con la autoridad."],
+    src:["phb"]},
+  alerta:{t:"Alerta Nacional de Búsqueda y fichas",lvl:"verde",
+    body:["Desde febrero de 2026 existe un protocolo que activa de forma automática una alerta nacional cuando se registra una desaparición, y coordina a autoridades, empresas y medios para difundir la ficha de búsqueda.","Si ves un posible avistamiento, repórtalo de inmediato al número que aparece en la <strong>ficha oficial</strong> del caso."],
+    src:["uno"]},
+  ayudar:{t:"Cómo ayudar sin dañar la búsqueda",lvl:"amarillo",
+    body:["Comparte <strong>solo fichas oficiales</strong> (verifica que provengan de una comisión de búsqueda o fiscalía) y no agregues datos que no estén en ellas.","Si crees haber visto a la persona, llama al número de la ficha oficial; no investigues por tu cuenta ni expongas a la familia.","No difundas rumores ni cadenas sin fuente: pueden desviar la búsqueda."],
+    src:["uno","cnb"]},
+  noatienden:{t:"Si no te quieren recibir el reporte",lvl:"amarillo",
+    body:["Pedir que esperes no es válido: recibir el reporte es obligación de la autoridad. Pide por escrito el nombre y cargo de quien te atiende.","Acércate a la Comisión Local de Búsqueda o a la CNB para registrar el reporte y la omisión."],
+    src:["nmas","cnb"]},
+  cifras:{t:"Cifras de personas desaparecidas",lvl:"amarillo",
+    body:["Una actualización del Registro Nacional (RNPDNO) reportada en medios indica alrededor de <strong>132 mil</strong> personas desaparecidas y no localizadas; el informe de Red Lupa con corte al 16 de mayo de 2026 habla de <strong>134,257</strong>.","Las cifras varían por fecha de corte y método. Consulta la versión pública del registro para la cifra vigente."],
+    src:["rnpdno","lupa"]}
+};
+
+/* ========= IA DISCRIMINATIVA: clasificador de intención =========
+   Puntuación por palabras clave ponderadas (modelo ligero, explicable, local). */
+const INTENTS = {
+  urgente:{kb:["emergencia","sin72","donde"],w:{"desaparec":2,"no aparece":3,"no llego":3,"no regreso":3,"no sabemos donde":3,"se perdio":2,"acaba de":2,"ayer":1,"hoy":1,"hijo":1,"hija":1,"familiar":1,"mi mama":1,"mi papa":1,"hermano":1,"hermana":1,"que hago":3,"que hacer":3,"ayuda":1,"urgente":3,"no contesta":2,"desaparecio":3}},
+  tiempo:{kb:["sin72"],w:{"72":4,"horas":2,"esperar":3,"cuanto tiempo":3,"24 horas":3,"48":2,"plazo":3,"todavia no":1,"cuando puedo":2}},
+  donde:{kb:["donde"],w:{"donde":3,"denunciar":3,"reportar":3,"fiscalia":3,"telefono":3,"numero":2,"whatsapp":3,"comision":2,"cnb":3,"linea":2,"policia":2}},
+  llevar:{kb:["llevar"],w:{"llevar":3,"documento":3,"foto":3,"datos":1,"necesito":2,"requisito":3,"informacion":1,"descripcion":2,"ropa":2,"senas":3,"preparar":2}},
+  alerta:{kb:["alerta"],w:{"alerta":4,"ficha":4,"difundir":2,"redes":2,"compartir":1,"amber":3,"cartel":2}},
+  ayudar:{kb:["ayudar"],w:{"vi a":3,"avistamiento":4,"lo vi":3,"la vi":3,"ayudar":2,"colaborar":2,"encontre":3,"compartir":2,"voluntari":2,"difundir":1}},
+  noatienden:{kb:["noatienden"],w:{"no me quieren":4,"rechaz":3,"no me atienden":4,"me dijeron que espere":4,"maltrato":3,"no me hacen caso":4,"negaron":3,"no recibieron":3,"burocra":2}},
+  cifras:{kb:["cifras"],w:{"cuantos":3,"cifra":3,"estadistica":3,"registro nacional":3,"numeros de":2,"total":2,"datos de desaparec":3,"mapa":2}}
+};
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+function clasificar(texto){
+  const t = norm(texto); const scores = {};
+  for(const [k,v] of Object.entries(INTENTS)){
+    let s=0; for(const [kw,w] of Object.entries(v.w)) if(t.includes(kw)) s+=w; scores[k]=s;
+  }
+  const arr = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+  const total = arr.reduce((a,[,s])=>a+s,0);
+  const [top,ts] = arr[0];
+  const conf = total? ts/total : 0;
+  return {top: ts>=3 ? top : null, score:ts, conf, arr};
+}
+/* Detector de datos personales: se ocultan antes de analizar */
+function ocultarPII(texto){
+  let found=[];
+  const rules=[[/\b[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]\d\b/gi,"CURP"],[/[\w.+-]+@[\w-]+\.[\w.]+/g,"correo"],[/(\+?52)?[\s-]?\(?\d{2,3}\)?[\s-]?\d{3,4}[\s-]?\d{4}\b/g,"teléfono"]];
+  let out=texto;
+  for(const [re,n] of rules){ if(re.test(out)){found.push(n); out=out.replace(re,"[dato oculto]");} re.lastIndex=0; }
+  return {out,found};
+}
+
+/* ========= REDACCIÓN DE RESPALDO (sin modelo de lenguaje) =========
+   Si la IA no responde, el sitio arma la respuesta con los textos de la base verificada. */
+const INTROS = {
+  urgente:"Lamento mucho lo que están viviendo. Esto es lo más importante, en orden:",
+  tiempo:"Buena noticia: no tienes que esperar.",
+  donde:"Estas son las vías para reportar:",
+  llevar:"Esto puede ayudar a que el reporte sea más útil:",
+  alerta:"Sobre la alerta y las fichas de búsqueda:",
+  ayudar:"Gracias por querer ayudar. Para no afectar la búsqueda:",
+  noatienden:"Esto no debería pasar. Qué puedes hacer:",
+  cifras:"Sobre las cifras, con cuidado en cómo leerlas:",
+  ruta:"Con tus respuestas, este es el orden que te sugerimos:"
+};
+/* Versión en lectura fácil de cada entrada (mismos hechos, frases cortas) */
+const FACIL = {
+  emergencia:"Si alguien está en peligro ahora, llama al 911.",
+  sin72:"No tienes que esperar. Puedes reportar desde el primer momento. Nadie puede pedirte que esperes 72 horas.",
+  donde:"Ve a la Fiscalía más cercana. También puedes ir a la Comisión de Búsqueda de tu estado o a la Comisión Nacional de Búsqueda. La Comisión Nacional informó dos teléfonos: 800 028 77 83 y 55 1309 9024. Antes de usarlos, revisa en su sitio oficial que sigan vigentes.",
+  llevar:"Lleva lo que tengas: una foto reciente, cómo es la persona, qué ropa llevaba, y dónde y cuándo la vieron por última vez. Si te falta algo, igual deben atenderte.",
+  alerta:"Cuando se registra una desaparición se activa una alerta nacional y se difunde una ficha oficial. Si ves a la persona, llama al número de esa ficha.",
+  ayudar:"Comparte solo fichas oficiales. No les agregues datos. Si ves a la persona, llama al número de la ficha. No investigues por tu cuenta ni compartas rumores.",
+  noatienden:"Deben recibir tu reporte. Pedirte que esperes no es válido. Pide por escrito el nombre y el cargo de quien te atiende. Después acude a la Comisión de Búsqueda de tu estado o a la Nacional.",
+  cifras:"Hay más de 130 mil personas desaparecidas y no localizadas en México. Una fuente dice cerca de 132 mil y otra dice 134,257. El número cambia según la fecha y la forma de contar."
+};
+/* Preguntas de seguimiento en modo de respaldo (índices de CHIPS) */
+const SUG_LOCAL = {urgente:[2,3],tiempo:[2,3],donde:[3,4],llevar:[2,4],alerta:[5,2],ayudar:[2,6],noatienden:[2,1],cifras:[1,2],ruta:[3,4]};
+
+/* ========= CONEXIÓN CON LA IA REAL =========
+   Pega aquí la URL de tu Worker desplegado (ver rastro-api/LEEME.md). Vacío = solo modo de respaldo local. */
+const API_URL = "https://rastro-api.rastrodeluz.workers.dev";
+const historial = [];   /* preguntas anteriores de esta conversación: solo en memoria y ya sin datos personales */
+async function llamarIA(texto,sencillo){
+  if(!API_URL) return null;
+  try{
+    const ctl=new AbortController(); const to=setTimeout(()=>ctl.abort(),25000);
+    const cuerpo={message:texto,previas:historial.slice(-3)}; if(sencillo) cuerpo.modo="sencillo";
+    const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(cuerpo),signal:ctl.signal});
+    clearTimeout(to);
+    const d=await r.json();
+    if(r.status===429) return {ok:true,cubierto:false,limite:true,respuesta:"Hiciste muchas preguntas seguidas. Espera un minuto e inténtalo de nuevo.",ids:[],intent:"otro"};
+    return d && d.ok ? d : null;
+  }catch(e){ return null; }
+}
+
+/* ========= Interfaz del chat ========= */
+const chat=document.getElementById("chat"), q=document.getElementById("q"), pii=document.getElementById("pii"), enviar=document.querySelector("#ask button");
+const CHIPS=[["Mi familiar no aparece","mi familiar no aparece desde ayer, que hago"],["¿Debo esperar 72 horas?","tengo que esperar 72 horas para reportar"],["¿Dónde reporto?","donde puedo reportar o denunciar"],["¿Qué datos llevar?","que documentos y datos debo llevar"],["No me quieren atender","no me quieren atender en la fiscalia"],["Vi a alguien de una ficha","creo que vi a una persona de una ficha"],["¿Cuántas personas hay?","cuantos desaparecidos hay cifras"]];
+document.getElementById("chips").innerHTML=CHIPS.map((c,i)=>`<button type="button" data-i="${i}">${c[0]}</button>`).join("");
+document.getElementById("chips").onclick=e=>{const b=e.target.closest("button"); if(b) preguntar(CHIPS[b.dataset.i][1],CHIPS[b.dataset.i][0]);};
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+const SALUDO=`<div class="msg bot"><p>Hola. Soy la guía de Rastro de luz. Puedo orientarte sobre cómo reportar, qué datos reunir y cómo leer las cifras. Arma tu ruta con las tres preguntas de arriba, elige una opción o escribe tu pregunta.</p></div>`;
+
+/* --- Piezas de una respuesta --- */
+function fuentesHTML(ids){
+  const srcIds=[...new Set(ids.flatMap(id=>KB[id].src))];
+  return srcIds.length?`<ul class="src">${srcIds.map(id=>`<li>📎 <a href="${SRC[id].u}" target="_blank" rel="noopener">${SRC[id].n}</a></li>`).join("")}</ul>`:"";
+}
+function pensoHTML(filas){
+  return `<details class="pens"><summary>🔍 Así se construyó esta respuesta</summary><ol>${filas.map(f=>`<li>${f}</li>`).join("")}</ol></details>`;
+}
+function accionesHTML(sencillo){
+  return `<div class="acts noprint">${sencillo?"":'<button type="button" data-act="facil">🪶 Explícamelo más sencillo</button>'}${"speechSynthesis" in window?'<button type="button" data-act="voz">🔊 Escuchar</button>':""}</div>`;
+}
+function sugHTML(botones){
+  return botones.length?`<div class="sug noprint"><span>También puedes preguntar:</span>${botones.join("")}</div>`:"";
+}
+function piiTexto(found){
+  return found.length?`Antes de analizar tu mensaje oculté: <strong>${found.map(esc).join(", ")}</strong>.`:"Revisé tu mensaje y no detecté teléfonos, correos ni CURP que ocultar.";
+}
+function respuestaLocal(ids,intro,sencillo){
+  let h=`<div class="ans"><p>${intro}</p>`;
+  ids.forEach((id,i)=>{ const it=KB[id];
+    h+=`<h3>${ids.length>1?(i+1)+". ":""}${it.t} <span class="tag ${it.lvl}">${it.lvl}</span></h3>`+(sencillo?`<p>${FACIL[id]}</p>`:`<ul>${it.body.map(b=>`<li>${b}</li>`).join("")}</ul>`);
+  });
+  return h+"</div>"+fuentesHTML(ids);
+}
+
+/* --- Pregunta -> respuesta. opt: {kbIds, origen, sencillo} --- */
+let ocupado=false;
+async function preguntar(texto,mostrar,opt={}){
+  if(ocupado) return;
+  const {out,found}=ocultarPII(texto);
+  pii.hidden=!found.length;
+  if(found.length) pii.textContent="Detecté posibles datos personales ("+found.join(", ")+") y los oculté. Por tu seguridad, no escribas datos de nadie aquí.";
+  chat.insertAdjacentHTML("beforeend",`<div class="msg user">${esc(mostrar||out)}</div>`);
+  chat.insertAdjacentHTML("beforeend",`<div class="msg bot" id="espera" role="status"><span class="typing" aria-hidden="true"><i></i><i></i><i></i></span> <span class="kv">Buscando en la base verificada…</span></div>`);
+  document.getElementById("espera").scrollIntoView({block:"nearest",behavior:"smooth"});
+  ocupado=true; enviar.disabled=true;
+  let html="", attrs="";
+  try{
+    /* 1) Intento con IA real (Gemini vía servidor intermedio). 2) Si falla: respaldo local. */
+    const [ia]=await Promise.all([llamarIA(out,opt.sencillo),new Promise(r=>setTimeout(r,450))]);
+    if(ia && ia.ok){
+      ia.ids=(ia.ids||[]).filter(id=>KB[id]); if(ia.cubierto && !ia.ids.length) ia.cubierto=false;
+      const ocultos=[...new Set([...found,...(ia.piiOculto||[])])];
+      const sug=sugHTML((ia.sugerencias||[]).slice(0,3).map(s=>`<button type="button" data-sug="${esc(s)}">${esc(s)}</button>`));
+      if(ia.limite){
+        html=`<p>${esc(ia.respuesta)}</p>`;
+      } else if(!ia.cubierto){
+        html=`<h3>No tengo información verificada sobre eso</h3><div class="ans"><p>${esc(ia.respuesta||"").replace(/\n/g,"<br>")}</p></div>${sug}<div class="meta">🤖 La IA revisó tu pregunta y no encontró respaldo en la base verificada, así que no inventa. Comunícate con la <strong>Comisión Nacional de Búsqueda</strong> o la <strong>Fiscalía</strong> de tu estado. Si hay peligro inmediato, llama al <strong>911</strong>.</div>`+
+          pensoHTML([piiTexto(ocultos),`La IA clasificó tu pregunta como: <strong>${esc(ia.intent)}</strong>.`,"Buscó en la base verificada y <strong>no encontró hechos que la respondan</strong>.","Por regla, en ese caso no redacta una respuesta propia: te remite a la autoridad."]);
+      } else {
+        const lv=ia.ids.map(id=>KB[id].lvl).includes("amarillo")?"amarillo":"verde";
+        const pasos=(ia.pasos||[]).length?`<ol class="pasos">${ia.pasos.map(p=>`<li>${esc(p)}</li>`).join("")}</ol>`:"";
+        html=`<div class="ans"><p>${esc(ia.respuesta).replace(/\n/g,"<br>")}</p>${pasos}</div>`+
+          `<p><span class="tag ${lv}">${lv}</span> <span class="kv">Basada en: ${ia.ids.map(id=>KB[id].t).join("; ")}</span></p>`+
+          fuentesHTML(ia.ids)+accionesHTML(opt.sencillo)+sug+
+          `<div class="meta">🤖 Clasificación y redacción con IA (Gemini)${opt.sencillo?", en lectura fácil":""}. Solo usa la base verificada y cita sus fuentes. <strong>Verifica con la autoridad.</strong></div>`+
+          pensoHTML([piiTexto(ocultos),
+            `IA discriminativa: clasificó tu pregunta como <strong>${esc(ia.intent)}</strong>${historial.length?" (tomó como contexto tus preguntas anteriores de esta conversación)":""}.`,
+            `Eligió ${ia.ids.length} ${ia.ids.length===1?"hecho":"hechos"} de la base verificada: <strong>${ia.ids.map(id=>KB[id].t).join("; ")}</strong>.`,
+            `IA generativa: redactó la respuesta solo con esos hechos${opt.sencillo?", en frases cortas":""}.`,
+            `El servidor comprobó que cada fuente citada exista en la base y descartó cualquier otra.${ia.modelo?" Modelo: "+esc(ia.modelo)+".":""}`]);
+        attrs=` data-q="${esc(out)}" data-ids="${ia.ids.join(",")}"`;
+      }
+    } else {
+      const r=opt.kbIds?null:clasificar(out);
+      const ids=opt.kbIds||(r.top?INTENTS[r.top].kb:null);
+      const origen=opt.origen||(r&&r.top);
+      if(!ids){
+        html=`<h3>No tengo información verificada sobre eso</h3><div class="ans"><p>No pude relacionar tu mensaje con información de mi base. Para no darte datos inciertos, te recomiendo comunicarte con la <strong>Comisión Nacional de Búsqueda</strong> o la <strong>Fiscalía</strong> de tu estado. Si hay peligro inmediato, llama al <strong>911</strong>.</p></div>`+
+          sugHTML([1,2,3].map(i=>`<button type="button" data-chip="${i}">${CHIPS[i][0]}</button>`))+
+          pensoHTML([piiTexto(found),"Un clasificador local buscó palabras clave de cada tema y ninguno alcanzó el puntaje mínimo.","Por regla, sin respaldo en la base no se muestra ninguna respuesta."]);
+      } else {
+        const como=r?`Un clasificador local por palabras clave puntuó cada tema: ${r.arr.filter(x=>x[1]>0).slice(0,3).map(([k,s])=>`${k} (${s})`).join(", ")}. Ganó <strong>${r.top}</strong>, con ${Math.round(r.conf*100)}% del puntaje.`
+                    :(opt.origen==="ruta"?"Tus tres respuestas de la ruta guiada determinaron qué temas mostrar y en qué orden.":"Se repitieron los mismos temas de la respuesta anterior.");
+        html=respuestaLocal(ids,opt.sencillo?"Te lo explico más sencillo:":INTROS[origen]||INTROS.ruta,opt.sencillo)+accionesHTML(opt.sencillo)+
+          sugHTML((SUG_LOCAL[origen]||SUG_LOCAL.ruta).map(i=>`<button type="button" data-chip="${i}">${CHIPS[i][0]}</button>`))+
+          `<div class="meta">🏷 Modo de respaldo: respuesta armada localmente con los textos de la base verificada (el modelo de lenguaje no está disponible). <strong>Verifica con la autoridad.</strong></div>`+
+          pensoHTML([piiTexto(found),como,`Se mostraron los textos de la base verificada para: <strong>${ids.map(id=>KB[id].t).join("; ")}</strong>${opt.sencillo?", en su versión de lectura fácil":""}.`,"En este modo no interviene el modelo de lenguaje: nada se envía fuera de tu navegador."]);
+        attrs=` data-q="${esc(out)}" data-ids="${ids.join(",")}"`;
+      }
+    }
+  } finally {
+    const e=document.getElementById("espera"); if(e) e.remove();
+    ocupado=false; enviar.disabled=false;
+  }
+  if(!opt.sencillo) historial.push(out);
+  chat.insertAdjacentHTML("beforeend",`<div class="msg bot"${attrs}>${html}</div>`);
+  chat.lastElementChild.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+document.getElementById("ask").onsubmit=e=>{e.preventDefault(); const v=q.value.trim(); if(!v||ocupado) return; q.value=""; preguntar(v);};
+
+/* --- Lectura en voz alta: solo con una voz instalada en el dispositivo (el texto no sale del navegador) --- */
+function vozLocal(){
+  const vs=speechSynthesis.getVoices().filter(v=>v.localService && /^es/i.test(v.lang));
+  return vs.find(v=>/mx/i.test(v.lang))||vs.find(v=>/us|419/i.test(v.lang))||vs[0]||null;
+}
+if("speechSynthesis" in window) speechSynthesis.getVoices();   /* algunos navegadores cargan la lista al primer llamado */
+function escuchar(btn){
+  const sonaba=btn.dataset.on; speechSynthesis.cancel();
+  if(sonaba) return;
+  const v=vozLocal();
+  if(!v){ btn.disabled=true; btn.textContent="🔇 Sin voz en español en este dispositivo"; return; }
+  const copia=btn.closest(".msg").querySelector(".ans").cloneNode(true);
+  copia.querySelectorAll(".tag").forEach(t=>t.remove());
+  const u=new SpeechSynthesisUtterance(copia.innerText||copia.textContent); u.voice=v; u.lang=v.lang; u.rate=.95;
+  u.onend=u.onerror=()=>{ btn.textContent="🔊 Escuchar"; delete btn.dataset.on; };
+  btn.textContent="⏹ Detener"; btn.dataset.on="1"; speechSynthesis.speak(u);
+}
+chat.onclick=e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.sug) return preguntar(b.dataset.sug);
+  if(b.dataset.chip) return preguntar(CHIPS[b.dataset.chip][1],CHIPS[b.dataset.chip][0]);
+  if(b.dataset.act==="voz") return escuchar(b);
+  if(b.dataset.act==="facil"){ const m=b.closest(".msg"); preguntar(m.dataset.q,"Explícamelo más sencillo",{sencillo:true,kbIds:m.dataset.ids.split(",")}); }
+};
+document.getElementById("limpiar").onclick=()=>{
+  if(ocupado) return;
+  if("speechSynthesis" in window) speechSynthesis.cancel();
+  historial.length=0; pii.hidden=true; chat.innerHTML=SALUDO;
+};
+
+/* ========= RUTA GUIADA: tres preguntas -> plan personalizado ========= */
+const RUTA=[
+ {k:"peligro",c:"Peligro inmediato",q:"¿Hay alguien en peligro en este momento?",o:[["si","Sí"],["no","No"],["nose","No lo sé"]]},
+ {k:"tiempo",c:"Tiempo transcurrido",q:"¿Cuánto tiempo ha pasado desde que no saben de la persona?",o:[["h","Menos de 24 horas"],["d","Entre 1 y 3 días"],["m","Más de 3 días"]]},
+ {k:"reporte",c:"Reporte ante la autoridad",q:"¿Ya intentaste reportarlo ante una autoridad?",o:[["no","Todavía no"],["ok","Sí, lo recibieron"],["neg","Sí, pero no me atendieron"]]}
+];
+const rutaBox=document.getElementById("ruta"); let rutaR={}, rutaI=0;
+function pintarRuta(){
+  const dots=`<div class="dots" aria-hidden="true">${RUTA.map((_,i)=>`<i class="${i<rutaI?"on":""}"></i>`).join("")}</div>`;
+  if(rutaI>=RUTA.length){
+    rutaBox.innerHTML=dots+`<strong>Tu ruta está lista.</strong> <span class="kv">La encuentras abajo, en la conversación. Puedes pedir que te la explique más sencillo o escucharla.</span><div class="opts"><button type="button" data-r="reset">↺ Volver a empezar</button></div>`;
+    return;
+  }
+  const p=RUTA[rutaI];
+  rutaBox.innerHTML=dots+`<div class="kv">Pregunta ${rutaI+1} de ${RUTA.length}</div><div class="rq">${p.q}</div><div class="opts">${p.o.map(([v,t])=>`<button type="button" data-v="${v}">${t}</button>`).join("")}${rutaI?'<button type="button" data-r="atras" class="ghost">← Atrás</button>':""}</div>`;
+}
+function temasRuta(r){
+  const ids=[];
+  if(r.peligro!=="no") ids.push("emergencia");
+  if(r.reporte==="no") ids.push("sin72","donde","llevar");
+  if(r.reporte==="ok") ids.push("alerta","ayudar");
+  if(r.reporte==="neg") ids.push("noatienden","sin72","donde");
+  return ids;
+}
+rutaBox.onclick=e=>{
+  const b=e.target.closest("button"); if(!b||ocupado) return;
+  if(b.dataset.r==="reset"){ rutaR={}; rutaI=0; return pintarRuta(); }
+  if(b.dataset.r==="atras"){ rutaI--; return pintarRuta(); }
+  rutaR[RUTA[rutaI].k]=b.dataset.v; rutaI++; pintarRuta();
+  if(rutaI<RUTA.length) return;
+  const et=RUTA.map(p=>[p.c,p.o.find(o=>o[0]===rutaR[p.k])[1]]);
+  preguntar("Ruta guiada. "+et.map(([c,t])=>`${c}: ${t}.`).join(" ")+" Dame un plan paso a paso, en orden, para esta situación.",
+            "Ruta guiada · "+et.map(([c,t])=>`${c}: ${t}`).join(" · "),{kbIds:temasRuta(rutaR),origen:"ruta"});
+};
+pintarRuta();
+
+/* ========= DATOS ========= */
+const CARDS=[
+ {big:"≈132 mil",lbl:"personas desaparecidas y no localizadas",src:"rnpdno",lvl:"amarillo",note:"Actualización del Registro Nacional reportada por medios; el corte exacto no se precisa en la nota."},
+ {big:"134,257",lbl:"personas desaparecidas y no localizadas (informe Red Lupa)",src:"lupa",lvl:"amarillo",note:"Corte al 16 de mayo de 2026. Fuente: organización civil con base en el registro oficial."},
+ {big:"Sin plazo",lbl:"mínimo para reportar una desaparición",src:"uno",lvl:"verde",note:"Protocolo Nacional publicado en el DOF el 17 de febrero de 2026."}
+];
+document.getElementById("cards").innerHTML=CARDS.map(c=>`<div class="card"><div class="big">${c.big}</div><div>${c.lbl}</div><p class="kv">${c.note}</p><span class="tag ${c.lvl}">${c.lvl}</span><a class="kv" href="${SRC[c.src].u}" target="_blank" rel="noopener">fuente</a></div>`).join("");
+const DEXP={
+ "¿Por qué dos cifras distintas?":"Porque cada una usa un corte de fecha y una fuente distintos (una es la actualización del registro oficial reportada en medios; otra, un informe de la organización Red Lupa al 16 de mayo de 2026). Además, hay familiares y colectivos que han pedido más transparencia sobre cómo se depura el registro. Por eso conviene citar siempre la fecha de corte y consultar la versión pública vigente.",
+ "¿Qué significa «no localizadas»?":"El registro cuenta personas desaparecidas y no localizadas: aquellas cuyo paradero se desconoce y no se ha confirmado su localización. No todas las cifras de la nota distinguen entre los dos grupos, por lo que no debemos sumar ni restar por cuenta propia.",
+ "¿Qué no podemos concluir?":"Con estas cifras no podemos decir cuántos casos ocurrieron en un año específico, ni en qué estado hay más, ni por qué. Para eso se necesitan los datos desagregados del registro oficial. Preferimos no mostrarlos antes de verificarlos."
+};
+document.getElementById("dchips").innerHTML=Object.keys(DEXP).map(k=>`<button type="button">${k}</button>`).join("");
+document.getElementById("dchips").onclick=e=>{const b=e.target.closest("button"); if(b) document.getElementById("dexp").textContent=DEXP[b.textContent];};
+
+/* ========= CHECKLIST (en memoria, sin guardar) ========= */
+const CHK=[
+ ["Primero",["Si hay peligro inmediato, llamar al 911.","Reportar ya: no esperar 24, 48 ni 72 horas.","Anotar nombre y cargo de quien recibe el reporte y el número de folio o expediente."]],
+ ["Información de la persona",["Fotografía reciente y clara.","Descripción: estatura, complexión, señas particulares, cicatrices, tatuajes.","Ropa, calzado y objetos que llevaba (celular, mochila, joyas).","Lugar, fecha y hora de la última vez que se le vio.","Con quién estuvo, a dónde iba y a quién pudo contactar."]],
+ ["Información de contacto",["Teléfono y correo de la persona que reporta (para que la autoridad pueda comunicarse).","Una persona de apoyo que pueda recibir llamadas si la familia no puede."]],
+ ["Después del reporte",["Pedir copia del reporte o denuncia.","Preguntar cómo se activará la ficha de búsqueda y cómo se dará seguimiento.","Compartir solo fichas oficiales; no publicar datos que la ficha no incluya.","Guardar copias de todo documento en un lugar seguro."]]
+];
+const chk=document.getElementById("chk");
+chk.innerHTML=CHK.map(([h,items])=>`<h3>${h}</h3>`+items.map(i=>`<label><input type="checkbox"><span>${i}</span></label>`).join("")).join("");
+function progreso(){
+  const cajas=[...chk.querySelectorAll("input")], hechas=cajas.filter(c=>c.checked).length, sig=cajas.find(c=>!c.checked);
+  document.getElementById("progb").style.width=Math.round(hechas/cajas.length*100)+"%";
+  document.getElementById("progt").textContent=sig?`Llevas ${hechas} de ${cajas.length}. Siguiente: ${sig.nextElementSibling.textContent}`:`Lista completa (${cajas.length} de ${cajas.length}). Guarda copia de todo y da seguimiento con la autoridad.`;
+}
+chk.onchange=progreso; progreso();
+
+/* ========= MITO O REALIDAD (contenido de la base verificada; sin IA y sin guardar nada) ========= */
+const MITOS=[
+ {a:"Hay que esperar 72 horas para reportar una desaparición.",v:false,kb:"sin72",e:"No existe un plazo mínimo. El protocolo nacional indica que la autoridad debe registrar el aviso sin demora y activar la alerta."},
+ {a:"Puedo reportar aunque no tenga todos los datos de la persona.",v:true,kb:"llevar",e:"No te pueden negar la atención por no tener todo: entregas lo que sabes y completas después."},
+ {a:"Compartir cualquier ficha que me llegue por redes siempre ayuda.",v:false,kb:"ayudar",e:"Conviene compartir solo fichas oficiales, de una comisión de búsqueda o una fiscalía, y sin agregarles datos. Los rumores y las cadenas sin fuente pueden desviar la búsqueda."},
+ {a:"Si creo haber visto a la persona, debo llamar al número de la ficha oficial.",v:true,kb:"alerta",e:"El posible avistamiento se reporta de inmediato al número que aparece en la ficha oficial del caso, sin investigar por cuenta propia."},
+ {a:"Si en la oficina me dicen que regrese después, ya no hay nada que hacer.",v:false,kb:"noatienden",e:"Recibir el reporte es obligación de la autoridad. Puedes pedir por escrito el nombre y cargo de quien te atiende y acudir a la Comisión Local de Búsqueda o a la CNB."}
+];
+const quiz=document.getElementById("quiz"); let mi=0, aciertos=0;
+function pintarQuiz(resp){
+  if(mi>=MITOS.length){
+    quiz.innerHTML=`<div class="big">${aciertos} de ${MITOS.length}</div><p>${aciertos===MITOS.length?"¡Todas correctas! Compartir esta información puede ahorrarle horas valiosas a una familia.":"Lo importante no es el puntaje: ahora sabes algo que puede ahorrarle horas valiosas a una familia."}</p><div class="opts"><button type="button" data-m="otra">↺ Jugar otra vez</button><a class="btn" href="#guia" style="text-decoration:none">Hacer una pregunta a la guía</a></div>`;
+    return;
+  }
+  const m=MITOS[mi], it=KB[m.kb];
+  let h=`<div class="kv">Afirmación ${mi+1} de ${MITOS.length}</div><div class="rq">«${m.a}»</div>`;
+  if(resp===undefined) h+=`<div class="opts"><button type="button" data-m="0">Mito</button><button type="button" data-m="1">Realidad</button></div>`;
+  else h+=`<div class="fb"><strong>${resp===m.v?"✅ Correcto":"❌ No exactamente"}: es ${m.v?"realidad":"un mito"}.</strong> ${m.e} <span class="tag ${it.lvl}">${it.lvl}</span>${fuentesHTML([m.kb])}</div><div class="opts"><button type="button" class="primary" data-m="sig">${mi+1<MITOS.length?"Siguiente →":"Ver resultado"}</button></div>`;
+  quiz.innerHTML=h;
+}
+quiz.onclick=e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  const m=b.dataset.m;
+  if(m==="otra"){ mi=0; aciertos=0; return pintarQuiz(); }
+  if(m==="sig"){ mi++; return pintarQuiz(); }
+  const resp=m==="1"; if(resp===MITOS[mi].v) aciertos++; pintarQuiz(resp);
+};
+pintarQuiz();
+
+/* ========= IA DISCRIMINATIVA 2: clasificador de enlaces ========= */
+const RULES=[
+ [/\.gob\.mx(\/|$)|\.gob\.mx$/,"verde","Dominio oficial de gobierno de México","Aun así, confirma que la página sea de la institución correcta y revisa la fecha."],
+ [/(^|\.)oas\.org$|(^|\.)icrc\.org$|(^|\.)un\.org$|(^|\.)ohchr\.org$|(^|\.)hchr\.org\.mx$|(^|\.)cndh\.org\.mx$/,"verde","Organismo internacional o de derechos humanos reconocido","Revisa la fecha del documento."],
+ [/\.edu(\.mx)?$|(^|\.)unam\.mx$|(^|\.)colmex\.mx$/,"verde","Institución académica","Busca autoría y fecha."],
+ [/(unotv|nmas|excelsior|eluniversal|milenio|proceso|animalpolitico|jornada|reforma)\./,"amarillo","Medio de comunicación","Útil, pero verifica el dato en la fuente primaria (institución u organismo)."],
+ [/facebook|instagram|tiktok|x\.com|twitter|whatsapp|t\.me|youtube/,"rojo","Red social o mensajería","No es evidencia por sí sola. Pueden circular fichas falsas o desactualizadas: verifica en un canal oficial."]
+];
+document.getElementById("url").addEventListener("input",e=>{
+  const v=e.target.value.trim(), out=document.getElementById("urlout");
+  if(!v){out.innerHTML="";return;}
+  let h; try{ h=new URL(/^https?:/i.test(v)?v:"https://"+v).hostname.toLowerCase(); }catch(_){ out.innerHTML='<span class="kv">Escribe un enlace completo.</span>';return;}
+  for(const [re,lvl,why,tip] of RULES){ if(re.test(h)){ out.innerHTML=`<span class="tag ${lvl}">${lvl}</span> <strong>${esc(h)}</strong><br>${why}. <span class="kv">${tip}</span>`; return; } }
+  out.innerHTML=`<span class="tag amarillo">amarillo</span> <strong>${esc(h)}</strong><br>No pude identificar el tipo de fuente. <span class="kv">Busca autor, institución y fecha, y contrasta el dato con una fuente oficial antes de compartirlo.</span>`;
+});
+
+/* ========= Tabla de fuentes ========= */
+const lvlSrc={uno:"verde",nmas:"amarillo",dof:"verde",cnb:"verde",phb:"verde",rnpdno:"amarillo",lupa:"amarillo",cidh:"verde"};
+const que={uno:"Alerta nacional y reporte sin esperar 72 h",nmas:"Aclaración de la Fiscalía del Edomex",dof:"Líneas de reporte 24 h de la CNB",cnb:"Autoridad y canales oficiales",phb:"Guía para familias (consultar)",rnpdno:"Cifra del Registro Nacional",lupa:"Cifra con corte 16 may 2026",cidh:"Contexto y recomendaciones al Estado"};
+document.querySelector("#srctab tbody").innerHTML=Object.keys(SRC).map(k=>`<tr><td><a href="${SRC[k].u}" target="_blank" rel="noopener">${SRC[k].n}</a></td><td>${que[k]}</td><td><span class="tag ${lvlSrc[k]}">${lvlSrc[k]}</span></td></tr>`).join("");
+
+/* Mensaje inicial */
+chat.innerHTML=SALUDO;
+</script>
+</body>
+</html>
