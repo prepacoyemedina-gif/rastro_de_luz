@@ -4,7 +4,7 @@ compatibility_date = "2026-11-01"
 
 [vars]
 # Origen de tu sitio publicado (sin / final). Cámbialo al publicar. "*" solo para pruebas.
-ALLOWED_ORIGIN = "*"
+ALLOWED_ORIGIN = "https://prepacoyemedina-gif.github.io"
 # Modelo de Gemini. Debe ser uno que Google AI Studio muestre disponible en el nivel GRATUITO
 # (revisa https://aistudio.google.com/rate-limit). Si falla con "404", cambia este valor.
 # Puedes poner dos separados por coma: si el primero no existe o tarda más de 11 s, se usa el segundo.
